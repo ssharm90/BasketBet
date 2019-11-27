@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="154dp"
+            android:layout_marginLeft="154dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="154dp"
+            android:layout_marginRight="154dp"
+            android:layout_marginBottom="114dp"
+            android:text="Stats"
+            android:textSize="45sp"
+            app:layout_constraintBottom_toTopOf="@+id/ptLabel2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.44" />
+
+        <TextView
+            android:id="@+id/team_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="158dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginRight="130dp"
+            android:text="Team1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/team2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/team2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="158dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginRight="64dp"
+            android:text="Team2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ptLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="Points:"
+            app:layout_constraintEnd_toStartOf="@+id/ptDisplay1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team_one" />
+
+        <TextView
+            android:id="@+id/ptLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="184dp"
+            android:text="Points:"
+            app:layout_constraintBottom_toTopOf="@+id/alg"
+            app:layout_constraintEnd_toStartOf="@+id/ptDisplay2" />
+
+        <TextView
+            android:id="@+id/rebLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="57dp"
+            android:layout_marginLeft="57dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="8dp"
+            android:text="Rebounds:"
+            app:layout_constraintBottom_toTopOf="@+id/fgLabel1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptLabel1" />
+
+        <TextView
+            android:id="@+id/rebLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Rebounds:"
+            app:layout_constraintEnd_toStartOf="@+id/rebDisplay2"
+            app:layout_constraintTop_toBottomOf="@+id/ptLabel2" />
+
+        <TextView
+            android:id="@+id/ptDisplay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="1dp"
+            android:text="points"
+            app:layout_constraintBottom_toTopOf="@+id/rebDisplay1"
+            app:layout_constraintStart_toEndOf="@+id/ptLabel1" />
+
+        <TextView
+            android:id="@+id/rebDisplay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:text="Rebounds"
+            app:layout_constraintStart_toEndOf="@+id/rebLabel1"
+            app:layout_constraintTop_toBottomOf="@+id/ptLabel1" />
+
+        <TextView
+            android:id="@+id/rebDisplay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Rebounds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ptDisplay2" />
+
+        <TextView
+            android:id="@+id/ptDisplay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:text="points"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team2" />
+
+        <TextView
+            android:id="@+id/fgLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="62dp"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="2dp"
+            android:text="FieldGoal:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rebLabel1" />
+
+        <TextView
+            android:id="@+id/fgLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="67dp"
+            android:layout_marginLeft="67dp"
+            android:layout_marginBottom="140dp"
+            android:text="FieldGoal:"
+            app:layout_constraintBottom_toTopOf="@+id/alg"
+            app:layout_constraintStart_toEndOf="@+id/fgDisplay1" />
+
+        <TextView
+            android:id="@+id/fgDisplay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="3dp"
+            android:text="FieldGoal"
+            app:layout_constraintStart_toEndOf="@+id/rebLabel1"
+            app:layout_constraintTop_toBottomOf="@+id/rebDisplay1" />
+
+        <TextView
+            android:id="@+id/fgDisplay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="2dp"
+            android:text="FieldGoal"
+            app:layout_constraintStart_toEndOf="@+id/fgLabel2"
+            app:layout_constraintTop_toBottomOf="@+id/rebDisplay2" />
+
+        <TextView
+            android:id="@+id/alg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="113dp"
+            android:layout_marginLeft="113dp"
+            android:layout_marginBottom="269dp"
+            android:text="Algorithm "
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
