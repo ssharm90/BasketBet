@@ -74,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         topSpinner.setSelection(top.getNum());
-        /**
+
         try {
             teamGETRequest(top.getNum());
         } catch (IOException e) {
             Log.e("get", "get didnt work");
         }
-        */
+
 
         bottomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         bottomSpinner.setSelection(bottom.getNum());
     }
 
-    /**
+
     public static void teamGETRequest(int teamNum) throws IOException {
         URL urlForGetRequest = new URL("https://www.balldontlie.io/api/v1/teams/" + teamNum);
         String readLine = null;
@@ -121,6 +121,6 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("GET NOT WORKED");
         }
     }
-    */
+
 
 }
