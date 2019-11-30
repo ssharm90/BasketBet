@@ -52,5 +52,7 @@
         <item>Utah Jazz</item>
         <item>Washington Wizards</item>
     </string-array>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="title_activity_results">ResultsActivity</string>
 
 </resources>

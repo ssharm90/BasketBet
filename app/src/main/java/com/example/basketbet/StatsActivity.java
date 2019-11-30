@@ -7,17 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class ResultsActivity extends AppCompatActivity{
+public class StatsActivity extends AppCompatActivity{
 
-    private Button res;
+    private Button ret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
-        res = findViewById(R.id.restart);
+        setContentView(R.layout.activity_stats);
+        ret = findViewById(R.id.winBut);
 
-        res.setOnClickListener(new View.OnClickListener() {
+        ret.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -27,7 +27,7 @@ public class ResultsActivity extends AppCompatActivity{
     }
     private void launchActivity() {
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ResultsActivity.class);
         startActivity(intent);
     }
 

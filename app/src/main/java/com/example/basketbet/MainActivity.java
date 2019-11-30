@@ -36,20 +36,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        begin = findViewById(R.id.begin);
 
-        begin.setOnClickListener(unused -> {
-            Log.i("button", "begin button was clicked!");
-            startCalculation();
+        begin = (Button) findViewById(R.id.begin);
+
+        begin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                launchActivity();
+            }
         });
-
     }
 
-    /**
-     * Changes screen to activity_result.xml.
-     */
-    public void startCalculation() {
-        Intent intent = new Intent(this, ResultsActivity.class);
+    private void launchActivity() {
+
+        Intent intent = new Intent(this, StatsActivity.class);
         startActivity(intent);
     }
 
