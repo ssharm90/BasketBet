@@ -2,6 +2,7 @@ package com.example.basketbet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +13,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 launchActivity();
+                getInfo();
             }
         });
     }
@@ -98,30 +105,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomSpinner.setSelection(bottom.getNum());
-    }
-
-
-    public static void teamGETRequest(int teamNum) throws IOException {
-        URL urlForGetRequest = new URL("https://www.balldontlie.io/api/v1/teams/" + teamNum);
-        String readLine = null;
-        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("id", "a1bcdef"); // set userId its a sample here
-        int responseCode = connection.getResponseCode();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
-            StringBuffer response = new StringBuffer();
-            while ((readLine = in .readLine()) != null) {
-                response.append(readLine);
-            } in .close();
-            // print result
-            Log.i("Get", "JSON String Result " + response.toString());
-            //GetAndPost.POSTRequest(response.toString());
-        } else {
-            System.out.println("GET NOT WORKED");
+        try {
+            teamGETRequest(bottom.getNum());
+        } catch (IOException e) {
+            Log.e("get", "get didnt work");
         }
     }
+
+
+    public  void teamGETRequest(int teamNum) throws IOException {
+        String url = "https://www.balldontlie.io/api/v1/teams/" + teamNum;
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.i("response", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("error", error.toString());
+            }
+        });
+
+    }
+
+
+
 
 
 }
