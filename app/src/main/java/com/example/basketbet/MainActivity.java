@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,6 +38,7 @@ import static android.view.View.*;
 public class MainActivity extends AppCompatActivity {
 
     private Button begin;
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 launchActivity();
-                getInfo();
+
             }
         });
     }
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, StatsActivity.class);
         startActivity(intent);
+        getInfo();
     }
 
     public void getInfo() {
@@ -117,23 +120,34 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://www.balldontlie.io/api/v1/teams/" + teamNum;
 
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.i("response", response);
+                TextView textView = (TextView) findViewById(R.id.team2Label);
+                textView.setText(response.toString());
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.i("error", error.toString());
+                System.out.println(error.toString());
             }
         });
 
+        stringRequest.setTag("Request1");
+
+        requestQueue.add(stringRequest);
+
     }
 
-
+    protected void onStop() {
+        super.onStop();
+        if(requestQueue != null) {
+            requestQueue.cancelAll("Request1");
+        }
+    }
 
 
 
