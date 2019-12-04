@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button begin;
     RequestQueue requestQueue;
+    private Team top;
+    private Team bottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         begin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 launchActivity();
 
             }
@@ -60,15 +61,11 @@ public class MainActivity extends AppCompatActivity {
     private void launchActivity() {
 
         Intent intent = new Intent(this, StatsActivity.class);
-        startActivity(intent);
-        getInfo();
-    }
 
-    public void getInfo() {
         Spinner topSpinner = findViewById(R.id.topTeams);
-        Team top = new Team();
+        top = new Team();
         Spinner bottomSpinner = findViewById(R.id.bottomTeams);
-        Team bottom = new Team();
+        bottom = new Team();
 
         topSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -86,11 +83,52 @@ public class MainActivity extends AppCompatActivity {
 
         topSpinner.setSelection(top.getNum());
 
-        try {
-            teamGETRequest(top.getNum());
-        } catch (IOException e) {
-            Log.e("get", "get didnt work");
-        }
+
+        bottomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View view,
+                                       final int position, final long id) {
+                bottom.setNum(position);
+            }
+
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // Called when the selection becomes empty
+                // Not relevant to the MP - can be left blank
+            }
+        });
+
+        bottomSpinner.setSelection(bottom.getNum());
+        intent.putExtra("topTeam", top.getNum());
+        intent.putExtra("bottomTeam", bottom.getNum());
+
+        startActivity(intent);
+    }
+
+    /**
+    public void getInfo() {
+        Spinner topSpinner = findViewById(R.id.topTeams);
+        top = new Team();
+        Spinner bottomSpinner = findViewById(R.id.bottomTeams);
+        bottom = new Team();
+
+        topSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(final AdapterView<?> parent, final View view,
+                                       final int position, final long id) {
+                top.setNum(position);
+            }
+
+            @Override
+            public void onNothingSelected(final AdapterView<?> parent) {
+                // Called when the selection becomes empty
+                // Not relevant to the MP - can be left blank
+            }
+        });
+
+        topSpinner.setSelection(top.getNum());
+
+
 
 
         bottomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -108,14 +146,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         bottomSpinner.setSelection(bottom.getNum());
-        try {
-            teamGETRequest(bottom.getNum());
-        } catch (IOException e) {
-            Log.e("get", "get didnt work");
-        }
+
     }
 
-
+    /**
     public  void teamGETRequest(int teamNum) throws IOException {
         String url = "https://www.balldontlie.io/api/v1/teams/" + teamNum;
 
@@ -148,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.cancelAll("Request1");
         }
     }
+     */
 
 
 

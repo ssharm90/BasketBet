@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class StatsActivity extends AppCompatActivity{
 
@@ -15,6 +16,13 @@ public class StatsActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+        Intent intent = getIntent();
+        int topnum = intent.getIntExtra("topTeam", 1);
+        int bottomnum = intent.getIntExtra("bottomTeam", 1);
+        TextView textView = (TextView) findViewById(R.id.team2Label);
+        textView.setText(topnum);
+
+
         ret = findViewById(R.id.winBut);
 
         ret.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +34,6 @@ public class StatsActivity extends AppCompatActivity{
         });
     }
     private void launchActivity() {
-
         Intent intent = new Intent(this, ResultsActivity.class);
         startActivity(intent);
     }
