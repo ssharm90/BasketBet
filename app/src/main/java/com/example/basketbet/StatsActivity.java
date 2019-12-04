@@ -19,8 +19,12 @@ public class StatsActivity extends AppCompatActivity{
         Intent intent = getIntent();
         int topnum = intent.getIntExtra("topTeam", 1);
         int bottomnum = intent.getIntExtra("bottomTeam", 1);
-        TextView textView = (TextView) findViewById(R.id.team2Label);
-        textView.setText(topnum);
+        String tName = intent.getStringExtra("topTeamn");
+        String bName = intent.getStringExtra("bottomTeamn");
+        TextView tTextView = (TextView) findViewById(R.id.Team1Label);
+        tTextView.setText(tName);
+        TextView bTextView = (TextView) findViewById(R.id.team2Label);
+        bTextView.setText(bName);
 
 
         ret = findViewById(R.id.winBut);

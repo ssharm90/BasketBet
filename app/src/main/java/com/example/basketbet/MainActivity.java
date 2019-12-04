@@ -63,12 +63,21 @@ public class MainActivity extends AppCompatActivity {
         top = new Team();
         Spinner bottomSpinner = findViewById(R.id.bottomTeams);
         bottom = new Team();
+        top.setNum(topSpinner.getSelectedItemPosition());
+        top.setName(topSpinner.getSelectedItem().toString());
+        bottom.setName(bottomSpinner.getSelectedItem().toString());
+        bottom.setNum(bottomSpinner.getSelectedItemPosition());
 
-        topSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        /*topSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(final AdapterView<?> parent, final View view,
                                        final int position, final long id) {
                 top.setNum(position);
+                top.setName(topSpinner.getItemAtPosition(position).toString());
+                Toast.makeText(MainActivity.this, "Botot, name: " + top.getName() + " num: " + top.getNum(), Toast.LENGTH_LONG).show();
+
+
             }
 
             @Override
@@ -76,16 +85,20 @@ public class MainActivity extends AppCompatActivity {
                 // Called when the selection becomes empty
                 // Not relevant to the MP - can be left blank
             }
-        });
+        });*/
 
-        topSpinner.setSelection(top.getNum());
+        Toast.makeText(MainActivity.this, "name: " + top.getName() + " num: " + top.getNum(), Toast.LENGTH_LONG).show();
+
+        //topSpinner.setSelection(top.getNum());
 
 
-        bottomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*bottomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(final AdapterView<?> parent, final View view,
                                        final int position, final long id) {
                 bottom.setNum(position);
+                bottom.setName(bottomSpinner.getItemAtPosition(position).toString());
+                Toast.makeText(MainActivity.this, "Botot, name: " + bottom.getName() + " num: " + bottom.getNum(), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -93,12 +106,19 @@ public class MainActivity extends AppCompatActivity {
                 // Called when the selection becomes empty
                 // Not relevant to the MP - can be left blank
             }
-        });
-        bottomSpinner.setSelection(bottom.getNum());
+        });*/
+
+        //bottomSpinner.setSelection(bottom.getNum());
+        //Toast.makeText(MainActivity.this, "Botot, name: " + bottom.getName() + " num: " + bottom.getNum(), Toast.LENGTH_LONG).show();
+
+
+
 
         Intent intent = new Intent(this, StatsActivity.class);
         intent.putExtra("topTeam", top.getNum());
         intent.putExtra("bottomTeam", bottom.getNum());
+        intent.putExtra("topTeamn", top.getName());
+        intent.putExtra("bottomTeamn", bottom.getName());
 
         startActivity(intent);
     }
@@ -145,9 +165,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomSpinner.setSelection(bottom.getNum());
 
-    }
+    } */
 
-    /**
+
     public  void teamGETRequest(int teamNum) throws IOException {
         String url = "https://www.balldontlie.io/api/v1/teams/" + teamNum;
 
@@ -180,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.cancelAll("Request1");
         }
     }
-     */
 
 
 

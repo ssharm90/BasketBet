@@ -66,6 +66,7 @@
         android:entries="@array/team_array"
         android:gravity="center"
         android:prompt="@string/team_prompt"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/bottomInstructions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -96,6 +97,7 @@
         android:entries="@array/team_array"
         android:gravity="center"
         android:prompt="@string/team_prompt"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/begin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
