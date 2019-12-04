@@ -59,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchActivity() {
-
-        Intent intent = new Intent(this, StatsActivity.class);
-
         Spinner topSpinner = findViewById(R.id.topTeams);
         top = new Team();
         Spinner bottomSpinner = findViewById(R.id.bottomTeams);
@@ -97,8 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 // Not relevant to the MP - can be left blank
             }
         });
-
         bottomSpinner.setSelection(bottom.getNum());
+
+        Intent intent = new Intent(this, StatsActivity.class);
         intent.putExtra("topTeam", top.getNum());
         intent.putExtra("bottomTeam", bottom.getNum());
 
