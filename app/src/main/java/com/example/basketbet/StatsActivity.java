@@ -134,11 +134,11 @@ public class StatsActivity extends AppCompatActivity{
 
         // Request a string response from the provided URL.
         JsonObjectRequest string2Request = new JsonObjectRequest(Request.Method.GET, url2 + url2Add,
-                null, response -> {
-            set2Stats(response);
+                null, response2 -> {
+            set2Stats(response2);
             // Display the first 500 characters of the response string.
             //textView.setText(response.toString().substring(0, 9));
-            System.out.println(response.toString());
+            System.out.println(response2.toString());
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -175,9 +175,9 @@ public class StatsActivity extends AppCompatActivity{
         try {
             String pt1String = j1.getString("points_per_game");
             double pt1 = Double.parseDouble(pt1String);
-            points1View.setText("Points:");
+            points1View.setText("Points: " + pt1String);
 
-            System.out.println("fdhksaj +" + pt1);
+            //System.out.println("fdhksaj +" + pt1);
 
             //String pt2String = j2.getString("points_per_game");
             //double pt2 = Double.parseDouble(pt1String);
@@ -185,7 +185,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String rebound1String = j1.getString("rebounds_per_game");
             double reb1 = Double.parseDouble(rebound1String);
-            rebounds1View.setText(rebound1String);
+            rebounds1View.setText("Rebounds: " + rebound1String);
 
             //String rebound2String = j2.getString("rebounds_per_game");
             //double reb2 = Double.parseDouble(rebound1String);
@@ -193,7 +193,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String twoFG1 = j1.getString("field_goal_percentage");
             double twoFGp1 = Double.parseDouble(twoFG1);
-            twofg1View.setText(twoFG1);
+            twofg1View.setText("Twos: " + twoFG1);
 
            // String twoFG2 = j2.getString("field_goal_percentage");
            // double twoFGp2 = Double.parseDouble(twoFG2);
@@ -201,7 +201,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String threeFG1 = j1.getString("three_point_percentage");
             double threeFGp1 = Double.parseDouble(threeFG1);
-            threefg1View.setText(threeFG1);
+            threefg1View.setText("Threes: " + threeFG1);
 
           //  String threeFG2 = j2.getString("three_point_percentage");
           //  double threeFGp2 = Double.parseDouble(threeFG2);
@@ -209,7 +209,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String perS1 = j1.getString("player_efficiency_rating");
             double per1 = Double.parseDouble(perS1);
-            per1View.setText(perS1);
+            per1View.setText("Efficiency: " + perS1);
 
         //    String perS2 = j2.getString("player_efficiency_rating");
            // double per2 = Double.parseDouble(perS2);
@@ -217,7 +217,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String turnS1 = j1.getString("turnovers_per_game");
             double turn1 = Double.parseDouble(turnS1);
-            turnover1View.setText(turnS1);
+            turnover1View.setText("Turnovers: " + turnS1);
 
            // String turnS2 = j2.getString("turnovers_per_game");
            // double turn2 = Double.parseDouble(turnS2);
@@ -225,7 +225,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String assistsS1 = j1.getString("assists_per_game");
             double ass1 = Double.parseDouble(assistsS1);
-            assists1View.setText(assistsS1);
+            assists1View.setText("Assists: " + assistsS1);
 
             //String assistsS2 = j2.getString("assists_per_game");
             //double ass2 = Double.parseDouble(assistsS2);
@@ -233,7 +233,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String blocksS1 = j1.getString("blocks_per_game");
             double b1 = Double.parseDouble(blocksS1);
-            blocks1View.setText(blocksS1);
+            blocks1View.setText("Blocks: " + blocksS1);
 
             //String blocksS2 = j2.getString("blocks_per_game");
             //double b2 = Double.parseDouble(blocksS2);
@@ -241,7 +241,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String stealsS1 = j1.getString("steals_per_game");
             double s1 = Double.parseDouble(stealsS1);
-            steals1View.setText(stealsS1);
+            steals1View.setText("Steals: " + stealsS1);
 
             //String stealsS2 = j2.getString("steals_per_game");
             //double s2 = Double.parseDouble(stealsS2);
@@ -249,7 +249,7 @@ public class StatsActivity extends AppCompatActivity{
 
             String minS1 = j1.getString("minutes_per_game").substring(0,2);
             double min1 = Double.parseDouble(minS1);
-            min1View.setText(minS1);
+            min1View.setText("Minutes : " + minS1);
 
             //String minS2 = j2.getString("minutes_per_game").substring(0,2);
             //double min2 = Double.parseDouble(minS2);
@@ -289,79 +289,79 @@ public class StatsActivity extends AppCompatActivity{
             //double pt1 = Double.parseDouble(pt1String);
             //points1View.setText("Points:");
 
-            System.out.println("fdhksaj +" + pt1);
+            //System.out.println("fdhksaj +" + pt1);
 
             String pt2String = j2.getString("points_per_game");
-            double pt2 = Double.parseDouble(pt1String);
+            double pt2 = Double.parseDouble(pt2String);
             points2View.setText(pt2String);
 
-            String rebound1String = j1.getString("rebounds_per_game");
-            double reb1 = Double.parseDouble(rebound1String);
-            rebounds1View.setText(rebound1String);
+        //    String rebound1String = j1.getString("rebounds_per_game");
+          //  double reb1 = Double.parseDouble(rebound1String);
+            //rebounds1View.setText(rebound1String);
 
             String rebound2String = j2.getString("rebounds_per_game");
-            double reb2 = Double.parseDouble(rebound1String);
+            double reb2 = Double.parseDouble(rebound2String);
             rebounds2View.setText(rebound2String);
 
-            String twoFG1 = j1.getString("field_goal_percentage");
-            double twoFGp1 = Double.parseDouble(twoFG1);
-            twofg1View.setText(twoFG1);
+           // String twoFG1 = j1.getString("field_goal_percentage");
+           // double twoFGp1 = Double.parseDouble(twoFG1);
+           // twofg1View.setText(twoFG1);
 
             String twoFG2 = j2.getString("field_goal_percentage");
             double twoFGp2 = Double.parseDouble(twoFG2);
             twofg2View.setText(twoFG2);
 
-            String threeFG1 = j1.getString("three_point_percentage");
-            double threeFGp1 = Double.parseDouble(threeFG1);
-            threefg1View.setText(threeFG1);
+         //   String threeFG1 = j1.getString("three_point_percentage");
+          //  double threeFGp1 = Double.parseDouble(threeFG1);
+         //  threefg1View.setText(threeFG1);
 
             String threeFG2 = j2.getString("three_point_percentage");
             double threeFGp2 = Double.parseDouble(threeFG2);
             threefg2View.setText(threeFG2);
 
-            String perS1 = j1.getString("player_efficiency_rating");
-            double per1 = Double.parseDouble(perS1);
-            per1View.setText(perS1);
+          //  String perS1 = j1.getString("player_efficiency_rating");
+          //  double per1 = Double.parseDouble(perS1);
+           // per1View.setText(perS1);
 
             String perS2 = j2.getString("player_efficiency_rating");
             double per2 = Double.parseDouble(perS2);
             per2View.setText(perS2);
 
-            String turnS1 = j1.getString("turnovers_per_game");
-            double turn1 = Double.parseDouble(turnS1);
-            turnover1View.setText(turnS1);
+          //  String turnS1 = j1.getString("turnovers_per_game");
+           // double turn1 = Double.parseDouble(turnS1);
+        //    turnover1View.setText(turnS1);
 
             String turnS2 = j2.getString("turnovers_per_game");
             double turn2 = Double.parseDouble(turnS2);
             turnover2View.setText(turnS2);
 
-            String assistsS1 = j1.getString("assists_per_game");
-            double ass1 = Double.parseDouble(assistsS1);
-            assists1View.setText(assistsS1);
+          //  String assistsS1 = j1.getString("assists_per_game");
+            //double ass1 = Double.parseDouble(assistsS1);
+            //assists1View.setText(assistsS1);
 
             String assistsS2 = j2.getString("assists_per_game");
             double ass2 = Double.parseDouble(assistsS2);
             assists2View.setText(assistsS2);
 
-            String blocksS1 = j1.getString("blocks_per_game");
-            double b1 = Double.parseDouble(blocksS1);
-            blocks1View.setText(blocksS1);
+         //   String blocksS1 = j1.getString("blocks_per_game");
+           // double b1 = Double.parseDouble(blocksS1);
+           // blocks1View.setText(blocksS1);
 
             String blocksS2 = j2.getString("blocks_per_game");
             double b2 = Double.parseDouble(blocksS2);
             blocks2View.setText(blocksS2);
 
-            String stealsS1 = j1.getString("steals_per_game");
-            double s1 = Double.parseDouble(stealsS1);
-            steals1View.setText(stealsS1);
+          //  String stealsS1 = j1.getString("steals_per_game");
+          //  double s1 = Double.parseDouble(stealsS1);
+          //  steals1View.setText(stealsS1);
 
             String stealsS2 = j2.getString("steals_per_game");
             double s2 = Double.parseDouble(stealsS2);
             steals2View.setText(stealsS2);
 
-            String minS1 = j1.getString("minutes_per_game").substring(0,2);
-            double min1 = Double.parseDouble(minS1);
-            min1View.setText(minS1);
+           // String minS1 = j1.getString("minutes_per_game").substring(0,2);
+           // double min1 = Double.parseDouble(minS1);
+           // min1View.setText(minS1);
 
             String minS2 = j2.getString("minutes_per_game").substring(0,2);
             double min2 = Double.parseDouble(minS2);

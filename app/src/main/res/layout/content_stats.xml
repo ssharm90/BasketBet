@@ -23,12 +23,15 @@
         android:id="@+id/team2Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
         android:layout_marginTop="106dp"
         android:layout_marginEnd="57dp"
         android:layout_marginRight="57dp"
         android:text="Team2"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Team1Label"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -39,7 +42,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="106dp"
         android:text="Team1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,33 +72,42 @@
         android:id="@+id/reb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="167dp"
+        android:layout_marginLeft="167dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
         android:text="Rebounds"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reb1"
         app:layout_constraintTop_toBottomOf="@+id/Points2" />
 
     <TextView
         android:id="@+id/twoFG2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="202dp"
+        android:layout_marginLeft="202dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="92dp"
         android:layout_marginRight="92dp"
         android:text="FG%"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/twoFG1"
         app:layout_constraintTop_toBottomOf="@+id/reb2" />
 
     <TextView
         android:id="@+id/Points2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="191dp"
+        android:layout_marginLeft="191dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="79dp"
         android:layout_marginRight="79dp"
         android:text="Points"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Points1"
         app:layout_constraintTop_toBottomOf="@+id/team2Label" />
 
     <TextView
@@ -135,11 +147,14 @@
         android:id="@+id/threeFG2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="175dp"
+        android:layout_marginLeft="175dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:text="threeFG2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/threeFG1"
         app:layout_constraintTop_toBottomOf="@+id/twoFG2" />
 
     <TextView
@@ -157,11 +172,14 @@
         android:id="@+id/per2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="199dp"
+        android:layout_marginLeft="199dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="86dp"
         android:layout_marginRight="86dp"
         android:text="P.E.R"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/per1"
         app:layout_constraintTop_toBottomOf="@+id/threeFG2" />
 
     <TextView
@@ -179,11 +197,14 @@
         android:id="@+id/turnOver2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginLeft="169dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="58dp"
         android:layout_marginRight="58dp"
         android:text="turnOver2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/turnOver1"
         app:layout_constraintTop_toBottomOf="@+id/per2" />
 
     <TextView
@@ -201,11 +222,14 @@
         android:id="@+id/assists2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="181dp"
+        android:layout_marginLeft="181dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="66dp"
         android:layout_marginRight="66dp"
         android:text="assists2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/assists1"
         app:layout_constraintTop_toBottomOf="@+id/turnOver2" />
 
     <TextView
@@ -223,11 +247,14 @@
         android:id="@+id/blocks2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
         android:text="blocks2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blocks1"
         app:layout_constraintTop_toBottomOf="@+id/assists2" />
 
     <TextView
@@ -245,11 +272,14 @@
         android:id="@+id/steals2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="187dp"
+        android:layout_marginLeft="187dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
         android:text="steals2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/steals1"
         app:layout_constraintTop_toBottomOf="@+id/blocks2" />
 
     <TextView
@@ -267,11 +297,14 @@
         android:id="@+id/min2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="199dp"
+        android:layout_marginLeft="199dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
         android:text="min2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/min1"
         app:layout_constraintTop_toBottomOf="@+id/steals2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
