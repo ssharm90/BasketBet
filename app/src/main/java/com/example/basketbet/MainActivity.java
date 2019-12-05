@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
     } */
 
-
+    /**
     public  void teamGETRequest(int teamNum) throws IOException {
         String url = "https://www.balldontlie.io/api/v1/teams/" + teamNum;
 
@@ -200,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.cancelAll("Request1");
         }
     }
+     */
 
 
 
