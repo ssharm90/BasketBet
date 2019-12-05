@@ -25,5 +25,4 @@ public final class Team {
     public String getName() {
         return name;
     }
-
 }
