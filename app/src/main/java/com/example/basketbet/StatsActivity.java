@@ -28,6 +28,10 @@ public class StatsActivity extends AppCompatActivity{
     private int topNum;
     private int bottomNum;
 
+    private double stat1;
+    private double stat2;
+    private String topName;
+    private String bottomName;
 
 
     @Override
@@ -43,6 +47,9 @@ public class StatsActivity extends AppCompatActivity{
         tTextView.setText(tName);
         TextView bTextView = (TextView) findViewById(R.id.team2Label);
         bTextView.setText(bName);
+
+        topName = intent.getStringExtra("topTeamn");
+        bottomName = intent.getStringExtra("bottomTeamn");
 
         statsApi(topNum, bottomNum);
         //statsApi(bottomNum);
@@ -60,6 +67,13 @@ public class StatsActivity extends AppCompatActivity{
     }
     private void launchActivity() {
         Intent intent = new Intent(this, ResultsActivity.class);
+        String toPut = "";
+        if (stat1 > stat2) {
+            toPut = topName;
+        } else {
+            toPut = bottomName;
+        }
+        intent.putExtra("winner", toPut);
         startActivity(intent);
     }
 
@@ -124,7 +138,7 @@ public class StatsActivity extends AppCompatActivity{
         // Add the request to the RequestQueue.
                 queue.add(stringRequest);
 
-        String url2Add = players[team1Num];
+        String url2Add = players[team2Num];
         //final TextView textView = (TextView) findViewById(R.id.Points1);
         // ...
 
@@ -255,7 +269,7 @@ public class StatsActivity extends AppCompatActivity{
             //double min2 = Double.parseDouble(minS2);
             //min2View.setText(minS2);
 
-
+            stat1 = algorithm(twoFGp1, threeFGp1, per1, turn1, ass1, b1, s1, reb1, min1);
 
         } catch (Exception e) {
             System.out.println("there was an error");
@@ -367,12 +381,18 @@ public class StatsActivity extends AppCompatActivity{
             double min2 = Double.parseDouble(minS2);
             min2View.setText(minS2);
 
-
+            stat2 = algorithm(twoFGp2, threeFGp2, per2, turn2, ass2, b2, s2, reb2, min2);
 
         } catch (Exception e) {
             System.out.println("there was an error");
         }
     }
+
+    public double algorithm(double twofgper, double threefgper, double per, double turn, double assists,
+                            double blocks, double steals, double reb, double minutes) {
+        return (((2*twofgper) + (3*threefgper) + per - turn + assists + (2*blocks) + (2*steals) + (2*reb))/ minutes);
+    }
+
 
 }
 
